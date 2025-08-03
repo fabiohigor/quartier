@@ -55,9 +55,9 @@ const galleryPhotos = [
         title: "Playground",
     },
     {
-        src: "img/ESPACO-GOURMET.webp",
-        alt: "Espaços gourmet",
-        title: "Espaços gourmet",
+        src: "img/SALAO-FESTAS.webp",
+        alt: "Salão de Festas",
+        title: "Salão de Festas",
     },
     {
         src: "img/CHURRASQUEIRA.webp",
