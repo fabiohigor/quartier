@@ -1289,6 +1289,17 @@ select.form-control {
   background: white;
 }
 
+/* Dark mode styles for localizacao */
+@media (prefers-color-scheme: dark) {
+  .localizacao {
+    background: var(--color-surface);
+  }
+}
+
+[data-color-scheme="dark"] .localizacao {
+  background: var(--color-surface);
+}
+
 .localizacao-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1302,10 +1313,22 @@ select.form-control {
   font-size: var(--font-size-2xl);
 }
 
+/* Dark mode for localizacao title */
+@media (prefers-color-scheme: dark) {
+  .localizacao-content h3 {
+    color: var(--color-primary);
+  }
+}
+
+[data-color-scheme="dark"] .localizacao-content h3 {
+  color: var(--color-primary);
+}
+
 .localizacao-content p {
   margin-bottom: var(--space-24);
   font-size: var(--font-size-lg);
   line-height: 1.6;
+  color: var(--color-text);
 }
 
 .localizacao-list {
@@ -1496,6 +1519,19 @@ select.form-control {
   position: relative;
 }
 
+/* Dark mode styles for depoimento */
+@media (prefers-color-scheme: dark) {
+  .depoimento {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+}
+
+[data-color-scheme="dark"] .depoimento {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
 .depoimento::before {
   content: '"';
   position: absolute;
@@ -1506,17 +1542,40 @@ select.form-control {
   font-family: serif;
 }
 
+/* Dark mode for depoimento quote */
+@media (prefers-color-scheme: dark) {
+  .depoimento::before {
+    color: var(--color-primary);
+  }
+}
+
+[data-color-scheme="dark"] .depoimento::before {
+  color: var(--color-primary);
+}
+
 .depoimento-content p {
   font-size: var(--font-size-lg);
   line-height: 1.6;
   margin-bottom: var(--space-24);
   font-style: italic;
+  color: var(--color-text);
 }
 
 .depoimento-autor strong {
   color: var(--quartier-green);
   display: block;
   margin-bottom: var(--space-4);
+}
+
+/* Dark mode for depoimento author */
+@media (prefers-color-scheme: dark) {
+  .depoimento-autor strong {
+    color: var(--color-primary);
+  }
+}
+
+[data-color-scheme="dark"] .depoimento-autor strong {
+  color: var(--color-primary);
 }
 
 .depoimento-autor span {
