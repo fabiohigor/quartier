@@ -10,79 +10,89 @@ let currentPhotoIndex = 0;
 // Photo gallery data
 const galleryPhotos = [
     {
-        src: "img/1.webp",
+        src: "img/PORTARIA-SOCIAL.webp",
         alt: "Portaria principal",
-        title: "Portaria Principal"
+        title: "Portaria Principal",
     },
     {
-        src: "img/2.webp",
+        src: "img/PORTARIA_SERVICO.webp",
+        alt: "Portaria de Serviços",
+        title: "Portaria de Serviços",
+    },
+    {
+        src: "img/QUADRA_AREIA.webp",
         alt: "Quadras de areia",
-        title: "Quadras de areia"
+        title: "Quadras de areia",
     },
     {
-        src: "img/3.webp",
+        src: "img/QUADRA-POLIESPORTIVA.webp",
         alt: "Quadra poliesportiva",
-        title: "Quadra poliesportiva"
+        title: "Quadra poliesportiva",
     },
     {
-        src: "img/4.webp",
-        alt: "Academia",
-        title: "Academia"
+        src: "img/QUADRA-PADEL.webp",
+        alt: "Quadra de Padel",
+        title: "Quadra de Padel",
     },
     {
-        src: "img/5.webp",
+        src: "img/ESPACO-FITNESS.webp",
+        alt: "Espaço Fitness",
+        title: "Espaço Fitness",
+    },
+    {
+        src: "img/BRINQUEDOTECA.webp",
         alt: "Brinquedoteca",
-        title: "Brinquedoteca"
+        title: "Brinquedoteca",
     },
     {
-        src: "img/6.webp",
-        alt: "Espaços gourmet",
-        title: "Espaços gourmet"
-    },
-    {
-        src: "img/7.webp",
-        alt: "Pet Place",
-        title: "Pet Place"
-    },
-    {
-        src: "img/8.webp",
-        alt: "Piscina de Biribol",
-        title: "Piscina de Biribol"
-    },
-    {
-        src: "img/10.webp",
-        alt: "Prainha",
-        title: "Prainha"
-    },
-    {
-        src: "img/11.webp",
-        alt: "Piscina",
-        title: "Piscina"
-    },
-    {
-        src: "img/12.webp",
+        src: "img/PLAYGROUND.webp",
         alt: "Playground",
-        title: "Playground"
+        title: "Playground",
     },
     {
-        src: "img/13.webp",
+        src: "img/PLAYGROUND2.webp",
+        alt: "Playground",
+        title: "Playground",
+    },
+    {
+        src: "img/ESPACO-GOURMET.webp",
+        alt: "Espaços gourmet",
+        title: "Espaços gourmet",
+    },
+    {
+        src: "img/CHURRASQUEIRA.webp",
+        alt: "Churrasqueira",
+        title: "Churrasqueira",
+    },
+    {
+        src: "img/PET-PLACE.webp",
+        alt: "Pet Place",
+        title: "Pet Place",
+    },
+    {
+        src: "img/PISCINA-BIRIBOL.webp",
+        alt: "Piscina de Biribol",
+        title: "Piscina de Biribol",
+    },
+    {
+        src: "img/PRAINHA.webp",
+        alt: "Prainha",
+        title: "Prainha",
+    },
+    {
+        src: "img/POMAR-PICNIC.webp",
         alt: "Espaço Picnic",
-        title: "Espaço Picnic"
+        title: "Espaço Picnic",
     },
     {
-        src: "img/14.webp",
-        alt: "Portaria de Serviços",
-        title: "Portaria de Serviços"
+        src: "img/PISTA-CAMINHADA.webp",
+        alt: "Pista de caminhada",
+        title: "Pista de caminhada",
     },
-    {
-        src: "img/15.webp",
-        alt: "Portaria de Serviços",
-        title: "Portaria de Serviços"
-    }
 ];
 
 // Initialize page when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
     initializePage();
     startCountdown();
     setupScrollAnimations();
@@ -91,12 +101,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize page functionality
 function initializePage() {
-    leadModal = document.getElementById('leadModal');
-    photoModal = document.getElementById('photoModal');
-    plantaModal = document.getElementById('plantaModal');
+    leadModal = document.getElementById("leadModal");
+    photoModal = document.getElementById("photoModal");
+    plantaModal = document.getElementById("plantaModal");
 
     // Close modal when clicking outside
-    window.addEventListener('click', function(event) {
+    window.addEventListener("click", function (event) {
         if (event.target === leadModal) {
             closeLeadModal();
         }
@@ -109,25 +119,25 @@ function initializePage() {
     });
 
     // Handle escape key for modals
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            if (leadModal && leadModal.style.display === 'block') {
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            if (leadModal && leadModal.style.display === "block") {
                 closeLeadModal();
             }
-            if (photoModal && photoModal.style.display === 'block') {
+            if (photoModal && photoModal.style.display === "block") {
                 closePhotoModal();
             }
-            if (plantaModal && plantaModal.style.display === 'block') {
+            if (plantaModal && plantaModal.style.display === "block") {
                 closePlantaModal();
             }
         }
 
         // Handle arrow keys for photo navigation
-        if (photoModal && photoModal.style.display === 'block') {
-            if (event.key === 'ArrowLeft') {
+        if (photoModal && photoModal.style.display === "block") {
+            if (event.key === "ArrowLeft") {
                 previousPhoto();
             }
-            if (event.key === 'ArrowRight') {
+            if (event.key === "ArrowRight") {
                 nextPhoto();
             }
         }
@@ -142,84 +152,91 @@ function initializePage() {
 
 // Lead Modal functions
 function openLeadModal() {
-    console.log('Opening lead modal...');
+    console.log("Opening lead modal...");
     if (leadModal) {
-        leadModal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
+        leadModal.style.display = "block";
+        document.body.style.overflow = "hidden";
 
         // Focus on first input
-        const firstInput = leadModal.querySelector('input');
+        const firstInput = leadModal.querySelector("input");
         if (firstInput) {
             setTimeout(() => firstInput.focus(), 100);
         }
 
         // Track modal opening (analytics placeholder)
-        trackEvent('modal_opened', 'lead_form');
+        trackEvent("modal_opened", "lead_form");
     } else {
-        console.error('Lead modal element not found');
+        console.error("Lead modal element not found");
     }
 }
 
 function closeLeadModal() {
-    console.log('Closing lead modal...');
+    console.log("Closing lead modal...");
     if (leadModal) {
-        leadModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+        leadModal.style.display = "none";
+        document.body.style.overflow = "auto";
 
         // Track modal closing (analytics placeholder)
-        trackEvent('modal_closed', 'lead_form');
+        trackEvent("modal_closed", "lead_form");
     }
 }
 
 // Photo Modal functions
 function openPhotoModal(photoIndex) {
-    console.log('Opening photo modal with index:', photoIndex);
+    console.log("Opening photo modal with index:", photoIndex);
     if (photoModal && galleryPhotos[photoIndex]) {
         currentPhotoIndex = photoIndex;
         updatePhotoModal();
-        photoModal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
+        photoModal.style.display = "block";
+        document.body.style.overflow = "hidden";
 
         // Track photo view
-        trackEvent('photo_viewed', 'gallery', { 
+        trackEvent("photo_viewed", "gallery", {
             photo_title: galleryPhotos[photoIndex].title,
-            photo_index: photoIndex 
+            photo_index: photoIndex,
         });
     } else {
-        console.error('Photo modal element not found or invalid photo index');
+        console.error("Photo modal element not found or invalid photo index");
     }
 }
 
 function closePhotoModal() {
-    console.log('Closing photo modal...');
+    console.log("Closing photo modal...");
     if (photoModal) {
-        photoModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+        photoModal.style.display = "none";
+        document.body.style.overflow = "auto";
 
         // Track modal closing
-        trackEvent('photo_modal_closed', 'gallery');
+        trackEvent("photo_modal_closed", "gallery");
     }
 }
 
 function previousPhoto() {
-    currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
+    currentPhotoIndex =
+        (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
     updatePhotoModal();
-    trackEvent('photo_navigation', 'gallery', { direction: 'previous', photo_index: currentPhotoIndex });
+    trackEvent("photo_navigation", "gallery", {
+        direction: "previous",
+        photo_index: currentPhotoIndex,
+    });
 }
 
 function nextPhoto() {
     currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length;
     updatePhotoModal();
-    trackEvent('photo_navigation', 'gallery', { direction: 'next', photo_index: currentPhotoIndex });
+    trackEvent("photo_navigation", "gallery", {
+        direction: "next",
+        photo_index: currentPhotoIndex,
+    });
 }
 
 function updatePhotoModal() {
     if (!photoModal || !galleryPhotos[currentPhotoIndex]) return;
 
     const photo = galleryPhotos[currentPhotoIndex];
-    const photoImg = document.getElementById('photoModalImage');
-    const photoTitle = document.getElementById('photoModalTitle');
-    const photoCounter = document.getElementById('photoModalCounter');
+    const photoImg = document.getElementById("photoModalImage");
+    const photoTitle = document.getElementById("photoModalTitle");
+    const photoCounter = document.getElementById("photoModalCounter");
 
     if (photoImg) {
         photoImg.src = photo.src;
@@ -237,7 +254,7 @@ function updatePhotoModal() {
 
 // Form handling
 function handleLeadForm(event) {
-    console.log('Handling form submission...');
+    console.log("Handling form submission...");
     event.preventDefault();
 
     const form = event.target;
@@ -246,53 +263,59 @@ function handleLeadForm(event) {
     const nameField = form.querySelector('input[type="text"]');
     const emailField = form.querySelector('input[type="email"]');
     const phoneField = form.querySelector('input[type="tel"]');
-    const timeField = form.querySelector('select');
+    const timeField = form.querySelector("select");
 
     const leadData = {
-        name: nameField ? nameField.value : '',
-        email: emailField ? emailField.value : '',
-        phone: phoneField ? phoneField.value : '',
-        timeframe: timeField ? timeField.value : '',
+        name: nameField ? nameField.value : "",
+        email: emailField ? emailField.value : "",
+        phone: phoneField ? phoneField.value : "",
+        timeframe: timeField ? timeField.value : "",
         timestamp: new Date().toISOString(),
-        source: 'quartier_landing_page'
+        source: "quartier_landing_page",
     };
 
-    console.log('Lead data:', leadData);
+    console.log("Lead data:", leadData);
 
     // Validate required fields
     if (!leadData.name || !leadData.email || !leadData.phone) {
-        showNotification('Por favor, preencha todos os campos obrigatórios.', 'error');
+        showNotification(
+            "Por favor, preencha todos os campos obrigatórios.",
+            "error",
+        );
         return;
     }
 
     // Validate email
     if (!isValidEmail(leadData.email)) {
-        showNotification('Por favor, insira um e-mail válido.', 'error');
+        showNotification("Por favor, insira um e-mail válido.", "error");
         return;
     }
 
     // Validate phone
     if (!isValidPhone(leadData.phone)) {
-        showNotification('Por favor, insira um telefone válido.', 'error');
+        showNotification("Por favor, insira um telefone válido.", "error");
         return;
     }
 
     // Show loading state
     const submitButton = form.querySelector('button[type="submit"]');
     const originalButtonText = submitButton.textContent;
-    submitButton.textContent = 'Enviando...';
+    submitButton.textContent = "Enviando...";
     submitButton.disabled = true;
 
     // Simulate form submission (replace with actual API call)
     setTimeout(() => {
         // Success simulation
-        showNotification('Obrigado! Em breve entraremos em contato com você.', 'success');
+        showNotification(
+            "Obrigado! Em breve entraremos em contato com você.",
+            "success",
+        );
 
         // Reset form
         form.reset();
 
         // Close modal if it's open
-        if (leadModal && leadModal.style.display === 'block') {
+        if (leadModal && leadModal.style.display === "block") {
             closeLeadModal();
         }
 
@@ -301,16 +324,18 @@ function handleLeadForm(event) {
         submitButton.disabled = false;
 
         // Track successful submission
-        trackEvent('form_submitted', 'lead_conversion', leadData);
+        trackEvent("form_submitted", "lead_conversion", leadData);
 
         // Redirect to WhatsApp after success with correct phone number
         setTimeout(() => {
             const message = encodeURIComponent(
-                `Olá! Acabei de preencher o formulário no site e gostaria de saber mais sobre o Quartier Santa Inês. Meu nome é ${leadData.name}.`
+                `Olá! Acabei de preencher o formulário no site e gostaria de saber mais sobre o Quartier Santa Inês. Meu nome é ${leadData.name}.`,
             );
-            window.open(`https://wa.me/5567999422025?text=${message}`, '_blank');
+            window.open(
+                `https://wa.me/5567999422025?text=${message}`,
+                "_blank",
+            );
         }, 2000);
-
     }, 1500);
 }
 
@@ -327,21 +352,28 @@ function startCountdown() {
 
         if (distance < 0) {
             // Reset to 7 days when countdown ends
-            targetDate.setTime(now + (7 * 24 * 60 * 60 * 1000));
+            targetDate.setTime(now + 7 * 24 * 60 * 60 * 1000);
         }
 
         const days = Math.floor(Math.abs(distance) / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((Math.abs(distance) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((Math.abs(distance) % (1000 * 60 * 60)) / (1000 * 60));
+        const hours = Math.floor(
+            (Math.abs(distance) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        const minutes = Math.floor(
+            (Math.abs(distance) % (1000 * 60 * 60)) / (1000 * 60),
+        );
 
         // Update DOM elements
-        const daysElement = document.getElementById('days');
-        const hoursElement = document.getElementById('hours');
-        const minutesElement = document.getElementById('minutes');
+        const daysElement = document.getElementById("days");
+        const hoursElement = document.getElementById("hours");
+        const minutesElement = document.getElementById("minutes");
 
-        if (daysElement) daysElement.textContent = String(days).padStart(2, '0');
-        if (hoursElement) hoursElement.textContent = String(hours).padStart(2, '0');
-        if (minutesElement) minutesElement.textContent = String(minutes).padStart(2, '0');
+        if (daysElement)
+            daysElement.textContent = String(days).padStart(2, "0");
+        if (hoursElement)
+            hoursElement.textContent = String(hours).padStart(2, "0");
+        if (minutesElement)
+            minutesElement.textContent = String(minutes).padStart(2, "0");
     }
 
     // Update immediately
@@ -360,9 +392,9 @@ function startCountdown() {
 function setupPhoneFormatting() {
     const phoneInputs = document.querySelectorAll('input[type="tel"]');
 
-    phoneInputs.forEach(input => {
-        input.addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
+    phoneInputs.forEach((input) => {
+        input.addEventListener("input", function (e) {
+            let value = e.target.value.replace(/\D/g, "");
 
             if (value.length > 0) {
                 if (value.length <= 2) {
@@ -381,21 +413,21 @@ function setupPhoneFormatting() {
 
         // Add placeholder
         if (!input.placeholder) {
-            input.placeholder = '(67) 99999-9999';
+            input.placeholder = "(67) 99999-9999";
         }
     });
 }
 
 // Smooth scrolling
 function setupSmoothScrolling() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(this.getAttribute("href"));
             if (target) {
                 target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                    behavior: "smooth",
+                    block: "start",
                 });
             }
         });
@@ -405,27 +437,29 @@ function setupSmoothScrolling() {
 // Scroll animations
 function setupScrollAnimations() {
     // Check if IntersectionObserver is supported
-    if (typeof IntersectionObserver === 'undefined') {
+    if (typeof IntersectionObserver === "undefined") {
         return;
     }
 
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: "0px 0px -50px 0px",
     };
 
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
 
                 // Add staggered animation for grid items
-                const gridItems = entry.target.querySelectorAll('.diferencial-card, .amenidade-item, .pagamento-card, .gallery-item');
+                const gridItems = entry.target.querySelectorAll(
+                    ".diferencial-card, .amenidade-item, .pagamento-card, .gallery-item",
+                );
                 gridItems.forEach((item, index) => {
                     setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
+                        item.style.opacity = "1";
+                        item.style.transform = "translateY(0)";
                     }, index * 100);
                 });
             }
@@ -433,19 +467,23 @@ function setupScrollAnimations() {
     }, observerOptions);
 
     // Observe sections for animation
-    const sections = document.querySelectorAll('.diferenciais, .amenidades, .localizacao, .pagamento, .prova-social');
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'all 0.6s ease-out';
+    const sections = document.querySelectorAll(
+        ".diferenciais, .amenidades, .localizacao, .pagamento, .prova-social",
+    );
+    sections.forEach((section) => {
+        section.style.opacity = "0";
+        section.style.transform = "translateY(30px)";
+        section.style.transition = "all 0.6s ease-out";
         observer.observe(section);
 
         // Prepare grid items for animation
-        const gridItems = section.querySelectorAll('.diferencial-card, .amenidade-item, .pagamento-card, .gallery-item');
-        gridItems.forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-            item.style.transition = 'all 0.4s ease-out';
+        const gridItems = section.querySelectorAll(
+            ".diferencial-card, .amenidade-item, .pagamento-card, .gallery-item",
+        );
+        gridItems.forEach((item) => {
+            item.style.opacity = "0";
+            item.style.transform = "translateY(20px)";
+            item.style.transition = "all 0.4s ease-out";
         });
     });
 }
@@ -458,17 +496,17 @@ function isValidEmail(email) {
 
 function isValidPhone(phone) {
     const phoneRegex = /\(\d{2}\)\s\d{4,5}-\d{4}/;
-    const cleanPhone = phone.replace(/\D/g, '');
+    const cleanPhone = phone.replace(/\D/g, "");
     return phoneRegex.test(phone) || cleanPhone.length >= 10;
 }
 
-function showNotification(message, type = 'info') {
+function showNotification(message, type = "info") {
     // Remove existing notifications
-    const existingNotifications = document.querySelectorAll('.notification');
-    existingNotifications.forEach(notification => notification.remove());
+    const existingNotifications = document.querySelectorAll(".notification");
+    existingNotifications.forEach((notification) => notification.remove());
 
     // Create notification element
-    const notification = document.createElement('div');
+    const notification = document.createElement("div");
     notification.className = `notification notification--${type}`;
 
     // Set notification content
@@ -480,7 +518,12 @@ function showNotification(message, type = 'info') {
     `;
 
     // Add styles
-    const backgroundColor = type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3';
+    const backgroundColor =
+        type === "success"
+            ? "#4CAF50"
+            : type === "error"
+              ? "#f44336"
+              : "#2196F3";
     notification.style.cssText = `
         position: fixed;
         top: 20px;
@@ -497,7 +540,9 @@ function showNotification(message, type = 'info') {
         animation: slideInRight 0.3s ease-out;
     `;
 
-    const notificationContent = notification.querySelector('.notification-content');
+    const notificationContent = notification.querySelector(
+        ".notification-content",
+    );
     notificationContent.style.cssText = `
         display: flex;
         align-items: center;
@@ -505,7 +550,7 @@ function showNotification(message, type = 'info') {
         gap: 12px;
     `;
 
-    const closeButton = notification.querySelector('.notification-close');
+    const closeButton = notification.querySelector(".notification-close");
     closeButton.style.cssText = `
         background: none;
         border: none;
@@ -518,8 +563,8 @@ function showNotification(message, type = 'info') {
     `;
 
     // Add close functionality
-    closeButton.addEventListener('click', function() {
-        notification.style.animation = 'slideOutRight 0.3s ease-out';
+    closeButton.addEventListener("click", function () {
+        notification.style.animation = "slideOutRight 0.3s ease-out";
         setTimeout(() => {
             if (notification.parentElement) {
                 notification.remove();
@@ -532,7 +577,7 @@ function showNotification(message, type = 'info') {
     // Auto remove after 5 seconds
     setTimeout(() => {
         if (notification.parentElement) {
-            notification.style.animation = 'slideOutRight 0.3s ease-out';
+            notification.style.animation = "slideOutRight 0.3s ease-out";
             setTimeout(() => {
                 if (notification.parentElement) {
                     notification.remove();
@@ -544,7 +589,7 @@ function showNotification(message, type = 'info') {
 
 function trackEvent(action, category, data = {}) {
     // Analytics tracking placeholder
-    console.log('Event tracked:', { action, category, data });
+    console.log("Event tracked:", { action, category, data });
 
     // Here you would integrate with Google Analytics, Facebook Pixel, etc.
     // Example:
@@ -558,7 +603,7 @@ function trackEvent(action, category, data = {}) {
 }
 
 // Add CSS animations
-const style = document.createElement('style');
+const style = document.createElement("style");
 style.textContent = `
     @keyframes slideInRight {
         from {
@@ -584,39 +629,37 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-
-
 // Planta Modal functions
 function openPlantaModal() {
-    console.log('Opening planta modal...');
+    console.log("Opening planta modal...");
     if (plantaModal) {
-        plantaModal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
+        plantaModal.style.display = "block";
+        document.body.style.overflow = "hidden";
 
         // Track planta view
-        trackEvent('planta_viewed', 'localizacao');
+        trackEvent("planta_viewed", "localizacao");
     } else {
-        console.error('Planta modal element not found');
+        console.error("Planta modal element not found");
     }
 }
 
 function closePlantaModal() {
-    console.log('Closing planta modal...');
+    console.log("Closing planta modal...");
     if (plantaModal) {
-        plantaModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+        plantaModal.style.display = "none";
+        document.body.style.overflow = "auto";
 
         // Track modal closing
-        trackEvent('planta_modal_closed', 'localizacao');
+        trackEvent("planta_modal_closed", "localizacao");
     }
 }
 
 // Floating Logo functionality
 function setupFloatingLogo() {
-    const floatingLogo = document.getElementById('floatingLogo');
-    const footer = document.querySelector('.footer');
-    const footerLogo = document.querySelector('.footer-logo');
-    
+    const floatingLogo = document.getElementById("floatingLogo");
+    const footer = document.querySelector(".footer");
+    const footerLogo = document.querySelector(".footer-logo");
+
     if (!floatingLogo || !footer || !footerLogo) return;
 
     let isMovingToFooter = false;
@@ -628,46 +671,52 @@ function setupFloatingLogo() {
         const documentHeight = document.documentElement.scrollHeight;
         const footerRect = footer.getBoundingClientRect();
         const footerLogoRect = footerLogo.getBoundingClientRect();
-        
+
         // Calcula se o rodapé está visível
         const footerVisible = footerRect.top < windowHeight;
-        
+
         // Se o rodapé está visível e ainda não começou a mover
         if (footerVisible && !isMovingToFooter) {
             isMovingToFooter = true;
-            floatingLogo.classList.add('moving-to-footer');
-            
+            floatingLogo.classList.add("moving-to-footer");
+
             // Calcula a posição final baseada na logo do rodapé
-            const targetX = footerLogoRect.left + (footerLogoRect.width / 2) - (floatingLogo.offsetWidth / 2);
-            const targetY = footerLogoRect.top + window.scrollY + (footerLogoRect.height / 2) - (floatingLogo.offsetHeight / 2);
-            
+            const targetX =
+                footerLogoRect.left +
+                footerLogoRect.width / 2 -
+                floatingLogo.offsetWidth / 2;
+            const targetY =
+                footerLogoRect.top +
+                window.scrollY +
+                footerLogoRect.height / 2 -
+                floatingLogo.offsetHeight / 2;
+
             // Move a logo para a posição do rodapé
-            floatingLogo.style.left = targetX + 'px';
-            floatingLogo.style.top = targetY + 'px';
-            
+            floatingLogo.style.left = targetX + "px";
+            floatingLogo.style.top = targetY + "px";
+
             // Esconde a logo flutuante após a animação
             setTimeout(() => {
-                floatingLogo.style.opacity = '0';
-                floatingLogo.style.visibility = 'hidden';
+                floatingLogo.style.opacity = "0";
+                floatingLogo.style.visibility = "hidden";
             }, 600);
-            
         } else if (!footerVisible && isMovingToFooter) {
             // Se o rodapé não está mais visível, volta a logo para a posição original
             isMovingToFooter = false;
-            floatingLogo.classList.remove('moving-to-footer');
-            floatingLogo.style.left = '';
-            floatingLogo.style.top = '';
-            floatingLogo.style.opacity = '';
-            floatingLogo.style.visibility = '';
+            floatingLogo.classList.remove("moving-to-footer");
+            floatingLogo.style.left = "";
+            floatingLogo.style.top = "";
+            floatingLogo.style.opacity = "";
+            floatingLogo.style.visibility = "";
         }
-        
+
         // Efeito de fade baseado no scroll
         if (!isMovingToFooter) {
             const scrollProgress = Math.min(scrollY / 200, 1);
-            const opacity = 0.9 - (scrollProgress * 0.1);
+            const opacity = 0.9 - scrollProgress * 0.1;
             floatingLogo.style.opacity = Math.max(opacity, 0.7);
         }
-        
+
         lastScrollY = scrollY;
     }
 
@@ -684,9 +733,9 @@ function setupFloatingLogo() {
     }
 
     // Event listeners
-    window.addEventListener('scroll', requestTick, { passive: true });
-    window.addEventListener('resize', updateFloatingLogo);
-    
+    window.addEventListener("scroll", requestTick, { passive: true });
+    window.addEventListener("resize", updateFloatingLogo);
+
     // Inicialização
     updateFloatingLogo();
 }
